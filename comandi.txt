@@ -117,4 +117,46 @@ C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git bra
 Deleted branch recursiveBranch (was 84bc157).
 
 
+#### BRANCH RECURSIVE STRATEGY CON CONFLITTI ###############
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git branch conflictBranch
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git branch -a
+  conflictBranch
+* master
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git switch conflictBranch
+Switched to branch 'conflictBranch'
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git add  .
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git commit -m "c7"
+[conflictBranch 1c82492] c7
+ 2 files changed, 122 insertions(+), 1 deletion(-)
+ create mode 100644 comandi.txt
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git switch master
+Switched to branch 'master'
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git add .
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git commit -m "c8"
+[master bfea656] c8
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git merge conflictBranch
+Auto-merging test.txt
+CONFLICT (content): Merge conflict in test.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git add .
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git commit -m "c9"
+[master 021ce8d] c9
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git branch -d conflictBranch
+Deleted branch conflictBranch (was 1c82492).
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git branch -a
+* master
 
