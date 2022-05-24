@@ -1,0 +1,120 @@
+
+#### COMANDI BASE ###############
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git init
+Initialized empty Git repository in C:/dati/documenti/docenze/corsoClan_2022_04/slides/Git/slides/esercizio1/.git/
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git config user.name rob
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git config user.email rob@rob
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git add .
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git commit -m "c1"
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git add .
+ 
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git commit -m "c2"
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git add .
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git commit -m "c3"
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git log --oneline
+d42fabd c3
+3082398 c2
+d99e5b4 c1
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git diff d99e d42fa
+diff --git a/test.txt b/test.txt
+index 818f417..ac02990 100644
+--- a/test.txt
++++ b/test.txt
+@@ -1 +1 @@
+-modifica 1
+\ No newline at end of file
++modifica 3
+\ No newline at end of file
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git revert d42f
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git log --oneline
+c007553 Revert "c3"
+d42fabd c3
+3082398 c2
+d99e5b4 c1
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git revert c007
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git log --oneline
+51a5d35 (HEAD -> master) Revert "Revert "c3"" ok
+c007553 Revert "c3"
+d42fabd c3
+3082398 c2
+d99e5b4 c1
+
+#### BRANCH FAST FORWARD ###############
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git branch fastForward
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git branch -a
+  fastForward
+* master
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git switch fastForward
+Switched to branch 'fastForward'
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git add .
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git commit -m "c4"
+[fastForward d31d48d] c4
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git switch master
+Switched to branch 'master'
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git merge fastForward
+Updating 51a5d35..d31d48d
+Fast-forward
+ test.txt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git branch -d fastForward
+Deleted branch fastForward (was d31d48d).
+
+
+
+#### BRANCH RECURSIVE STRATEGY SENZA CONFLITTI ###############
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git branch recursiveBranch
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git branch -a
+* master
+  recursiveBranch
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git switch recursiveBranch
+Switched to branch 'recursiveBranch'
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git add .
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git commit -m "c5"
+[recursiveBranch 84bc157] c5
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git switch master
+Switched to branch 'master'
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git add .
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git commit -m "c6"
+[master c89f0b4] c6
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test2.txt
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git merge recursiveBranch
+Merge made by the 'recursive' strategy.
+ test.txt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+C:\dati\documenti\docenze\corsoClan_2022_04\slides\Git\slides\esercizio1>git branch -d recursiveBranch
+Deleted branch recursiveBranch (was 84bc157).
+
+
+

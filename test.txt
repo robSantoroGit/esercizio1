@@ -2,3 +2,4 @@ modifica 3
 modifica 1 nel branch
 modifica 1 in recursiveBranch
 modifica 4 in master
+modifica 1 in conflictBranch
